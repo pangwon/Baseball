@@ -27,6 +27,24 @@ TEST_F(BaseballFixture, CorrectInput) {
 	EXPECT_TRUE(result.solved);
 	EXPECT_EQ(3, result.strikes);
 	EXPECT_EQ(0, result.balls);
+
+	// 2 strikes, 0 balls
+	result = game.guess("124");
+	EXPECT_FALSE(result.solved);
+	EXPECT_EQ(2, result.strikes);
+	EXPECT_EQ(0, result.balls);
+
+	// 1 strikes, 2 balls
+	result = game.guess("132");
+	EXPECT_FALSE(result.solved);
+	EXPECT_EQ(1, result.strikes);
+	EXPECT_EQ(2, result.balls);
+
+	// 3 balls
+	result = game.guess("312");
+	EXPECT_FALSE(result.solved);
+	EXPECT_EQ(0, result.strikes);
+	EXPECT_EQ(3, result.balls);
 }
 
 int main() {

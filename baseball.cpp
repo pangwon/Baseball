@@ -15,7 +15,7 @@ public:
 		assertilligalArgument(guessNumber);
 		if (guessNumber == question)
 			return { true, 3, 0 };
-		return { false, 0, 0 };
+		return { false, getStrikes(guessNumber), getBalls(guessNumber) };
 
 	}
 
@@ -34,12 +34,34 @@ public:
 		}
 	}
 
+
+private:
+	int getStrikes(const std::string& guessNumber)
+	{
+		int strikes = 0;
+		for (int i = 0; i < question.length(); i++) {
+			if (guessNumber[i] == question[i])
+				strikes++;
+		}
+		return strikes;
+	}
+
+	int getBalls(const std::string& guessNumber)
+	{
+		int balls = 0;
+		for (int i = 0; i < question.length(); i++) {
+			if (guessNumber[i] != question[i] && question.find(guessNumber[i]) != string::npos)
+				balls++;
+		}
+		return balls;
+	}
+
 	bool isDuplicateNumber(const std::string& guessNumber)
 	{
 		return guessNumber[0] == guessNumber[1] ||
 			guessNumber[0] == guessNumber[2] ||
 			guessNumber[1] == guessNumber[2];
 	}
-private:
+
 	string question;
 };
