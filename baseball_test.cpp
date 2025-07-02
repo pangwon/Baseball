@@ -19,6 +19,7 @@ public:
 TEST_F(BaseballFixture, WrongInputTest) {
 	assertilligalArgument("12");
 	assertilligalArgument("12s");
+	assertilligalArgument("121");
 }
 
 int main() {
