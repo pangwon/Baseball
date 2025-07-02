@@ -15,7 +15,12 @@ public:
 		assertilligalArgument(guessNumber);
 		if (guessNumber == question)
 			return { true, 3, 0 };
-		return { false, 0, 0 };
+		int strikes = 0;
+		for (int i = 0; i < question.length(); i++) {
+			if (guessNumber[i] == question[i])
+				strikes++;
+		}
+		return { false, strikes, 0 };
 
 	}
 
