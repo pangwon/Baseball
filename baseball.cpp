@@ -5,6 +5,7 @@ using namespace std;
 class Baseball {
 public:
 	void guess(const string& str) {
-		throw length_error("Must be length 3");
+		if (str.length() != 3)
+			throw length_error("Must be length 3");
 	}
 };
