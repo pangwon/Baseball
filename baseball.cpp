@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include <stdexcept>
 
 using namespace std;
@@ -42,4 +43,9 @@ public:
 	}
 private:
 	string question;
+=======
+class Baseball {
+public:
+
+>>>>>>> c64b34dd00b36a7359e787515dd921c37e02d38c
 };
